@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:context="http://www.springframework.org/schema/context"     
+    xmlns:tx="http://www.springframework.org/schema/tx"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd    
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd  
+        ">  
+      
+    <!-- 加载配置文件 -->  
+    <context:property-placeholder location="classpath:redis/redis.properties"/>  
+    <bean name="genericObjectPoolConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig">  
+        <property name="maxWaitMillis" value="${redis.maxWaitMillis}" />  
+        <property name="maxTotal" value="${redis.maxTotal}" />  
+        <property name="minIdle" value="${redis.minIdle}" />  
+        <property name="maxIdle" value="${redis.maxIdle}" />  
+    </bean>  
+      
+    <bean id="jedisCluster" class="com.chen.redis.JedisClusterFactory">  
+        <property name="addressConfig">  
+            <value>classpath:redis/connect-redis.properties</value>  <!-- 集群地址 -->
+        </property>  
+        <property name="addressKeyPrefix" value="address"></property>  
+        <property name="timeout" value="${redis.timeout}" />  
+        <property name="maxRedirections" value="${redis.maxRedirections}" />  
+        <property name="genericObjectPoolConfig" ref="genericObjectPoolConfig"></property>  
+    </bean>  
+      
+</beans> 

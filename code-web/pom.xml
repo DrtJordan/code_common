@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.jk</groupId>
+		<artifactId>code-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<!-- 设置父类的绝对路径 -->
+		<relativePath>../code-parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>code-web</artifactId>
+	<packaging>war</packaging>
+	<name>code-web Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+	<mybatis-spring.version>1.2.3</mybatis-spring.version>
+	<mybatis.version>3.3.0</mybatis.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.jk</groupId>
+			<artifactId>code-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${mybatis-spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.cloudhopper.proxool</groupId>
+			<artifactId>proxool</artifactId>
+			<version>${proxool.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>servlet-api</artifactId>
+					<groupId>javax.servlet</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>code-web</finalName>
+	</build>
+</project>

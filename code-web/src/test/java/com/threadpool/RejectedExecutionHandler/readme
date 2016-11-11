@@ -1,0 +1,1 @@
+线程由于阻塞或者超过容量导致报错的线程处理器 RejectedExecutionHandler

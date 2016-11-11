@@ -1,3 +1,5 @@
+Spring集成redis缓存
+
 1. city_code_cn 表 DDL：
 CREATE TABLE `city_code_cn` (
   `ID` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
@@ -11,3 +13,4 @@ CREATE TABLE `city_code_cn` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2324 DEFAULT CHARSET=utf8 COMMENT='全国城市表';
 2. 项目测试可以根据 CityController 相关定义接口进行请求。如会用 JMeter 可以使用 jmeter 目录中的脚本。
+

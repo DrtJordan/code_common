@@ -13,7 +13,8 @@
 	<module>code-web</module> 
 	<module>code-bigData</module>
     <module>code-test</module>
-	</modules> 
+    <module>ChainProcess</module>
+	 </modules> 
 	<!-- 配置私服工厂 -->
 
 	<repositories>

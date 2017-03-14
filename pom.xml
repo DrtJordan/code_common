@@ -13,7 +13,9 @@
 	<module>code-web</module> 
 	<module>code-bigData</module>
     <module>code-test</module>
-	</modules> 
+    <module>code-flume-plugin</module>
+    <module>ChainProcess</module>
+	 </modules> 
 	<!-- 配置私服工厂 -->
 
 	<repositories>
@@ -93,6 +95,7 @@
 		<org.slf4j.version>1.7.10</org.slf4j.version>
 		<mysql.version>5.1.38</mysql.version>
 		<jdk.version>1.7</jdk.version>
+		<flume.appender.version>1.5.2</flume.appender.version>
 	</properties>
 
 	<dependencies>
@@ -124,6 +127,12 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j.version}</version>
+		</dependency>
+		<!-- flume appender-->
+		<dependency>
+			<groupId>org.apache.flume.flume-ng-clients</groupId>
+			<artifactId>flume-ng-log4jappender</artifactId>
+			<version>${flume.appender.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>

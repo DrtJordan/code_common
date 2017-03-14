@@ -63,8 +63,12 @@ public class MyKafkaChannel extends BasicChannelSemantics{
 	        }
 	        String brokerList = ctx.getString(BROKER_LIST_FLUME_KEY);
 	        if (brokerList == null || brokerList.isEmpty()) {
-	            throw new ConfigurationException("Broker List must be specified");
+	        String bootStrapServers = ctx.getString(BOOTSTRAP_SERVERS_CONFIG);
+	 	        if (bootStrapServers == null || bootStrapServers.isEmpty()) {
+	 	          throw new ConfigurationException("Bootstrap Servers must be specified Or Broker List must be specified");
+	 	    }
 	        }
+	       
 	        String zkConnect = ctx.getString(ZOOKEEPER_CONNECT_FLUME_KEY);
 	        if (zkConnect == null || zkConnect.isEmpty()) {
 	            throw new ConfigurationException(
